@@ -1,21 +1,29 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const { Schema } = mongoose;
 
-const UserSchema = new Schema({
+const RestaurantSchema = new Schema({
   name: {
     type: String,
     required: [true, 'Please add a name'],
-    maxlength: [50, 'Only max 50 chars are allowed for the name']
+    maxlength: [75, 'The name can be max 75 chars long']
   },
-  surname: {
-    type: String,
-    required: [true, 'Please add a surname'],
-    maxlength: [50, 'Only max 50 chars are allowed for the surname']
-  },
-  age: {
+  ratings: {
     type: Number,
-    max: 120
+    required: [true, 'Please add a surname'],
+    maxlength: [75, 'The surname can be max 75 chars long']
+  },
+  open: {
+    type: String
+  },
+  img: {
+    type: String
+  },
+  city_id: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'Location'
   }
 });
 
-module.exports = mongoose.model('User', UserSchema);
+// User --> users
+// Movie --> movies
+module.exports = mongoose.model('Restaurant', RestaurantSchema);

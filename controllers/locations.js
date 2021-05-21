@@ -25,8 +25,8 @@ const getLocation = async (req, res, next) => {
 
 const createLocation = async (req, res, next) => {
   try {
-    const { name, surname, age } = req.body;
-    const location = await Location.create({ name, surname, age});
+    const { name, ratings, open, img, city_id, desc } = req.body;
+    const location = await Location.create({ name, ratings, open, img, city_id, desc });
 
     res.json({ success: true, msg: 'show new location', data: location })
   } catch(err) {

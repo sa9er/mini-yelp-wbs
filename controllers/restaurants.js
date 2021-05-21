@@ -25,8 +25,8 @@ const getRestaurant = async (req, res, next) => {
 
 const createRestaurant = async (req, res, next) => {
   try {
-    const { name, surname, age } = req.body;
-    const restaurant = await Restaurant.create({ name, surname, age });
+    const { name, ratings, open, img, city_id, desc } = req.body;
+    const restaurant = await Restaurant.create({ name, ratings, open, img, city_id, desc });
 
     res.json({ success: true, msg: 'show new restaurant', data: restaurant })
   } catch(err) {

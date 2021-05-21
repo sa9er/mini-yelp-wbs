@@ -1,0 +1,1 @@
+curl -d '{"name": "Jiggly", "ratings": "5", "open": "100", "img":"sadas", "city_id": {"id": "1231"}, "desc": "fuckoff crossover" }' -H "Content-Type: application/json" -X POST http://localhost:1000/restaurants

@@ -4,11 +4,12 @@ const express = require("express");
 
 const cors = require('cors');
 const connectDB = require('./dbinit');
+const locations = require('./api/locations');
 const restaurants = require('./api/restaurants');
 const errorHandler = require('./middleware/error');
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 1000;
 
 connectDB();
 
@@ -18,8 +19,10 @@ if (process.env.NODE_ENV === 'dev') {
 
 
 app.use(express.json());
-app.get('/', (req, res) => res.send('hello'));
+app.get('/', (req, res) => res.send(`hello Frontend team !
+this will be ur guide for the backend Servers`));
 app.use('/restaurants', restaurants);
+app.use('/locations', locations)
 app.use(errorHandler);
 
 

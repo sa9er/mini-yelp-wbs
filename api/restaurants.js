@@ -1,24 +1,24 @@
 const express = require("express");
 const {
-  getUsers,
-  getUser,
-  createUser,
-  updateUser,
-  deleteUser
-} = require('../controllers/users');
+  getRestaurants,
+  getRestaurant,
+  createRestaurant,
+  updateRestaurant,
+  deleteRestaurant
+} = require('../controllers/restaurants');
 
 const api = express.Router();
 
 api
   .route("/")
-  .get(getUsers)
-  .post(createUser)
+  .get(getRestaurants)
+  .post(createRestaurant)
 
 api
   .route('/:id')
-  .get(getUser)
-  .put(updateUser)
-  .delete(deleteUser)
+  .get(getRestaurant)
+  .put(updateRestaurant)
+  .delete(deleteRestaurant)
 
 // locahost:5000/users/:id/orders
 

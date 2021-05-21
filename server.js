@@ -14,10 +14,7 @@ const PORT = process.env.PORT || 1000;
 
 connectDB();
 
-if (process.env.NODE_ENV === 'dev') {
-  app.use(cors());
-}
-
+app.use(cors()),
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());

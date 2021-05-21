@@ -1,5 +1,6 @@
 require('dotenv').config()
 require('colors');
+const path = require('path');
 const express = require("express");
 
 const cors = require('cors');
@@ -17,10 +18,9 @@ if (process.env.NODE_ENV === 'dev') {
   app.use(cors());
 }
 
-
+app.use(express.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
-app.get('/', (req, res) => res.send(`hello Frontend team !
-this will be ur guide for the backend Servers`));
 app.use('/restaurants', restaurants);
 app.use('/locations', locations)
 app.use(errorHandler);

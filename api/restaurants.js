@@ -4,8 +4,7 @@ const {
   getUser,
   createUser,
   updateUser,
-  deleteUser,
-  getUserOrders
+  deleteUser
 } = require('../controllers/users');
 
 const api = express.Router();

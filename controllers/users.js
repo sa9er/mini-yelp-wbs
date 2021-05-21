@@ -6,7 +6,7 @@ const { ObjectId } = mongoose.Types;
 
 const getUsers = async (req, res, next) => {
   try {
-    const users = await Restaurant.find();
+    const users = await Restaurant.find().populate('city_id');
     res.json({ success: true, msg: 'show all users', data: users })
   } catch(err) {
     next(err)
@@ -16,7 +16,7 @@ const getUsers = async (req, res, next) => {
 const getUser = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const user = await Restaurant.findById(id);
+    const user = await Restaurant.populate('city_id');
     res.json({ success: true, msg: 'show selected user', data: user })
   } catch(err) {
     next(err)

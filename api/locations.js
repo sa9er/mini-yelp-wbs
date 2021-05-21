@@ -1,24 +1,24 @@
 const express = require("express");
 const {
-  getUsers,
-  getUser,
-  createUser,
-  updateUser,
-  deleteUser
+  getLocations,
+  getLocation,
+  createLocation,
+  updateLocation,
+  deleteLocation
 } = require('../controllers/locations');
 
 const api = express.Router();
 
 api
   .route("/")
-  .get(getUsers)
-  .post(createUser)
+  .get(getLocations)
+  .post(createLocation)
 
 api
   .route('/:id')
-  .get(getUser)
-  .put(updateUser)
-  .delete(deleteUser)
+  .get(getLocation)
+  .put(updateLocation)
+  .delete(deleteLocation)
 
 // locahost:5000/users/:id/orders
 
